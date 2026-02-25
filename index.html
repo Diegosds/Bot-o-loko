@@ -19,12 +19,30 @@
     .container {
         text-align: center;
         background: rgba(255, 255, 255, 0.9);
-        padding: 50px;
+        padding: 60px 50px 50px 50px; /* Aumentei o padding superior para dar espaço */
         border-radius: 20px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         position: relative;
         z-index: 1;
         transition: opacity 0.3s ease;
+        margin-top: 60px; /* Adiciona espaço no topo */
+    }
+
+    /* Estilo para a imagem do cachorro */
+    .dog-image {
+        width: 180px; /* Aumentei de 120px para 180px */
+        height: 180px; /* Aumentei de 120px para 180px */
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid white; /* Aumentei a borda */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra mais pronunciada */
+        position: absolute;
+        top: -120px; /* Mais negativo para subir mais */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        padding: 5px;
+        z-index: 10; /* Garante que fique acima */
     }
 
     .buttons {
@@ -146,10 +164,25 @@
         opacity: 0;
         pointer-events: none;
     }
+
+    /* Para telas menores */
+    @media (max-width: 600px) {
+        .dog-image {
+            width: 150px;
+            height: 150px;
+            top: -100px;
+        }
+        
+        .container {
+            padding: 50px 30px 30px 30px;
+        }
+    }
 </style>
 </head>
 <body>
 <div class="container" id="container">
+    <!-- ALTERE O CAMINHO DA IMAGEM DO CACHORRO -->
+    <img src="dog.png" alt="Meu cachorro" class="dog-image">
     <h1>Quer sair comigo?</h1>
     <div class="buttons">
         <button id="yes">Sim 🐕😊</button>
